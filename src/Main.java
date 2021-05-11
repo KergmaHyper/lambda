@@ -2,9 +2,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        oper<Integer> op1;
-        oper<Double> op2;
-        oper<String> op3;
+        two<Integer> op1;
+        two<Double> op2;
+        two<String> op3;
         op1=(  x,  y ) -> x + y;
         op2=( x, y ) -> (x +y) / (x-y);
         op3=( x, y ) -> x+y;
@@ -25,9 +25,20 @@ public class Main {
         System.out.printf("summ sqr: %.2f\r\n",sum(arr1,op5));
         op5 = (x)-> (x<5?0:x*x);
         System.out.printf("summ sqr if num >5 : %.2f\r\n",sum(arr1,op5));
+        double[] catets = {3.0,4.0};
+        un<Double> sqr = (x) -> x*x;
+        un<Double> sqrt = (x) -> Math.sqrt(x);
 
+        double[] sumarr;
+        sumarr = arrop(catets,sqr);
 
+        for (double item:sumarr){System.out.printf(" %f",item);}
+        System.out.println();
+        System.out.println(sqrt.r( sum(catets,sqr) ));
+
+        
     }
+
       static double sum (double[] arr, un<Double> func){
        double res = 0;
         for (double it:arr){
@@ -36,8 +47,18 @@ public class Main {
         return res;
     }
 
+    static double[] arrop (double[] arr, un<Double> func){
+        int j = arr.length;
+        double[] res =new double[j];
+        for (int i=0; i < j;i++ ){
+           res[i] = func.r(arr[i]);
+            }
+
+        return res;
+    }
+
 }
-interface oper<T> {
+interface two<T> {
     T todo(T a, T b);
 }
 interface un<T>{
