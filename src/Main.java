@@ -36,6 +36,11 @@ public class Main {
         System.out.println();
         System.out.println(sqrt.r( sum(catets,sqr) ));
 
+
+        two<Double> lenGip;
+        lenGip = ( x,y) -> Math.sqrt(x*x+y*y);
+        System.out.printf("\r\n !!!!  Length gippotenuse = %f \r\n",lenGip.todo(3.0,4.0));
+
         
     }
 
